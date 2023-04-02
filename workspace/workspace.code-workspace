@@ -1,0 +1,57 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        },
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "interactive",
+        "java.dependency.packagePresentation": "hierarchical",
+        "editor.minimap.enabled": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": false,
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/bower_components": true,
+            "**/*.code-search": true,
+        },
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            "**/target": true,
+        },
+        "maven.executable.preferMavenWrapper": false,
+        "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+        "java.format.settings.profile": "GoogleStyle",
+        "java.checkstyle.configuration": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+        "java.checkstyle.version": "10.5.0",
+        "java.compile.nullAnalysis.mode": "automatic",
+        //"java.jdt.ls.vmargs": "-Dos.detected.name=linux -Dos.detected.arch=x86_64 -Dos.detected.classifier=linux-x86_64 -Xmx2G -Xms100m",
+        "java.jdt.ls.vmargs": "-Dos.detected.name=linux -Dos.detected.arch=x86_64 -Dos.detected.classifier=linux-x86_64",
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "java",
+                "name": "Launch Current File",
+                "request": "launch",
+                "mainClass": "${file}"
+            },
+            {
+                "type": "java",
+                "name": "dependency-injection",
+                "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
+                "projectName": "dependency-injection",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
+        ]
+    }
+}
