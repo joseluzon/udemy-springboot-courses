@@ -2,17 +2,16 @@ package com.github.joseluzon.udemy.springframework5.dependencyinjection.attribut
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Component
 public class Motor {
-    @Value("xl1")
     private String brand;
-    @Value("1982")
     private Integer model;
+
+    public Motor(@Value("xl1") String brand, @Value("1982") Integer model) {
+        this.brand = brand;
+        this.model = model;
+    }
 }

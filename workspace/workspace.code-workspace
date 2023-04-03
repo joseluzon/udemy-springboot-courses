@@ -46,7 +46,7 @@
             {
                 "type": "java",
                 "name": "dependency-injection",
-                "console": "internalConsole",
+                // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
                 "projectName": "dependency-injection",
