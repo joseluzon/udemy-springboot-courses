@@ -5,13 +5,10 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Data
-@Component
+@Component(value = "MotorByAttribute")
 public class Motor {
+    @Value("golf")
     private String brand;
+    @Value("1980")
     private Integer model;
-
-    public Motor(@Value("xl1") String brand, @Value("1982") Integer model) {
-        this.brand = brand;
-        this.model = model;
-    }
 }

@@ -3,32 +3,15 @@ package com.github.joseluzon.udemy.springframework5.dependencyinjection.attribut
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 
-@NoArgsConstructor
-@ToString
-@Component
+@Data
+@Component(value = "CarByAttribute")
 public class Car {
-    
-    private String brand;
-    private Integer model;
-    private Motor motor;
-
     @Value("VW")
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    @Value("1981")
-    public void setModel(Integer model) {
-        this.model = model;
-    }
-
+    private String brand;
+    @Value("1980")
+    private Integer model;
     @Autowired
-    public void setMotor(Motor motor) {
-        this.motor = motor;
-    }
-
-
+    private Motor motor;
 }
