@@ -50,7 +50,34 @@
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
                 "projectName": "dependency-injection",
+                "vmArgs": ""
+            },
+            {
+                "type": "java",
+                "name": "dependency-injection [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
+                "projectName": "dependency-injection",
                 "vmArgs": "-Dspring.profiles.active=development"
+            },
+            {
+                "type": "java",
+                "name": "dependency-injection [production]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
+                "projectName": "dependency-injection",
+                "vmArgs": "-Dspring.profiles.active=production"
+            },
+            {
+                "type": "java",
+                "name": "dependency-injection [qa]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
+                "projectName": "dependency-injection",
+                "vmArgs": "-Dspring.profiles.active=qa"
             },
         ]
     }

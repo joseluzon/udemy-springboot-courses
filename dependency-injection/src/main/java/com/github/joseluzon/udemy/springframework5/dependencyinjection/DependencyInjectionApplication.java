@@ -2,6 +2,7 @@ package com.github.joseluzon.udemy.springframework5.dependencyinjection;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.github.joseluzon.udemy.springframework5.dependencyinjection.profiles.EnvironmentService;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.qualifiers.Animal;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.qualifiers.Bird;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.qualifiers.Dog;
@@ -36,6 +37,9 @@ public class DependencyInjectionApplication {
         log.info("default {}", animal2);
         final var nest = context.getBean(Nest.class);
         log.info("{}", nest);
+
+        final var envService = context.getBean(EnvironmentService.class);
+        log.info("Environment Service : {}", envService.getEnvironment());
     }
 
 }
