@@ -3,6 +3,7 @@ package com.github.joseluzon.udemy.springframework5.dependencyinjection;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+import com.github.joseluzon.udemy.springframework5.dependencyinjection.lifecycle.LifeCycleBean;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.lists.CalculatorService;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.profiles.EnvironmentService;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.qualifiers.Animal;
@@ -19,8 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 public class DependencyInjectionApplication {
 
     public static void main(String[] args) {
-        log.info("----- DI by Attribute ------");
         final var context = SpringApplication.run(DependencyInjectionApplication.class, args);
+        log.info("----- DI by Attribute ------");
         final var carAtt = context.getBean("CarByAttribute",
                 com.github.joseluzon.udemy.springframework5.dependencyinjection.attribute.Car.class);
         log.info("Car by Attribute : {}", carAtt);
@@ -78,6 +79,9 @@ public class DependencyInjectionApplication {
         final var expression2 = parser.parseExpression("10 < 20");
         log.info("SpEL Expression value1 : {}", expression1.getValue());
         log.info("SpEL Expression value2 : {}", expression2.getValue());
+
+        log.info("----- Lifecycle -----");
+        final var lifeCycleBean = context.getBean(LifeCycleBean.class);
     }
 
 }
