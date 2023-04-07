@@ -3,6 +3,7 @@ package com.github.joseluzon.udemy.springframework5.dependencyinjection;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+import com.github.joseluzon.udemy.springframework5.dependencyinjection.aop.TargetObject;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.lifecycle.LifeCycleBean;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.lists.CalculatorService;
 import com.github.joseluzon.udemy.springframework5.dependencyinjection.profiles.EnvironmentService;
@@ -82,6 +83,10 @@ public class DependencyInjectionApplication {
 
         log.info("----- Lifecycle -----");
         final var lifeCycleBean = context.getBean(LifeCycleBean.class);
+
+        log.info("----- AOP -----");
+        final var targetObject = context.getBean(TargetObject.class);
+        targetObject.hello("Hello AOP");
     }
 
 }
