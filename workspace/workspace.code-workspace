@@ -45,38 +45,74 @@
             },
             {
                 "type": "java",
-                "name": "dependency-injection",
+                "name": "core",
                 // "console": "internalConsole",
                 "request": "launch",
-                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
-                "projectName": "dependency-injection",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
+                "projectName": "core",
                 "vmArgs": ""
             },
             {
                 "type": "java",
-                "name": "dependency-injection [development]",
+                "name": "core [development]",
                 // "console": "internalConsole",
                 "request": "launch",
-                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
-                "projectName": "dependency-injection",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
+                "projectName": "core",
                 "vmArgs": "-Dspring.profiles.active=development"
             },
             {
                 "type": "java",
-                "name": "dependency-injection [production]",
+                "name": "core [production]",
                 // "console": "internalConsole",
                 "request": "launch",
-                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
-                "projectName": "dependency-injection",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
+                "projectName": "core",
                 "vmArgs": "-Dspring.profiles.active=production"
             },
             {
                 "type": "java",
-                "name": "dependency-injection [qa]",
+                "name": "core [qa]",
                 // "console": "internalConsole",
                 "request": "launch",
-                "mainClass": "com.github.joseluzon.udemy.springframework5.dependencyinjection.DependencyInjectionApplication",
-                "projectName": "dependency-injection",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
+                "projectName": "core",
+                "vmArgs": "-Dspring.profiles.active=qa"
+            },
+            {
+                "type": "java",
+                "name": "rest",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
+                "projectName": "rest",
+                "vmArgs": ""
+            },
+            {
+                "type": "java",
+                "name": "rest",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
+                "projectName": "rest",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
+            {
+                "type": "java",
+                "name": "rest",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
+                "projectName": "rest",
+                "vmArgs": "-Dspring.profiles.active=production"
+            },
+            {
+                "type": "java",
+                "name": "rest",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
+                "projectName": "rest",
                 "vmArgs": "-Dspring.profiles.active=qa"
             },
         ]
