@@ -90,7 +90,7 @@
             },
             {
                 "type": "java",
-                "name": "rest",
+                "name": "rest [development]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
@@ -99,7 +99,7 @@
             },
             {
                 "type": "java",
-                "name": "rest",
+                "name": "rest [production]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
@@ -108,7 +108,7 @@
             },
             {
                 "type": "java",
-                "name": "rest",
+                "name": "rest [qa]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
