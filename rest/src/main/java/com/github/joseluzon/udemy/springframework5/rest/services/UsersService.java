@@ -2,6 +2,8 @@ package com.github.joseluzon.udemy.springframework5.rest.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,8 +20,12 @@ public class UsersService {
         this.usersRepository = usersRepository;
     }
 
-    public List<User> getUsers() {
-        return usersRepository.findAll();
+    public Page<User> getUsers(final int page, final int size) {
+        return usersRepository.findAll(PageRequest.of(page, size));
+    }
+
+    public Page<String> getUsernames(final int page, final int size) {
+        return usersRepository.findUsernames(PageRequest.of(page, size));
     }
 
     public User getUserById(final Integer userId) {
