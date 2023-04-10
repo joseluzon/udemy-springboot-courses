@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.joseluzon.udemy.springframework5.rest.entities.User;
 import com.github.joseluzon.udemy.springframework5.rest.services.UsersService;
 import io.micrometer.core.annotation.Timed;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @RestController
 @RequestMapping("/users")
@@ -43,6 +46,10 @@ public class UsersController {
     }
 
     @GetMapping("/{userId}")
+    @Operation(method = "GET", summary = "Returns a user for the given user id", responses = {
+        @ApiResponse(responseCode = "200", description = "The user with user id given was found"),
+        @ApiResponse(responseCode = "404", description = "The user with user id given was NOT found", content = @Content)
+    })
     public ResponseEntity<User> getUserById(@PathVariable("userId") final Integer userId) {
         return new ResponseEntity<>(usersService.getUserById(userId), HttpStatus.OK);
     }
