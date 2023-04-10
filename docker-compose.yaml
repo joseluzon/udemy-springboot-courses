@@ -26,7 +26,7 @@ services:
     networks:
       - devenv_network
     volumes:
-      - ~/.devel/prometheus:/etc/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     deploy:
       resources:
         limits:
