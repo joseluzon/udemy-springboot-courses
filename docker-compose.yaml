@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  devenv-java:
+    image: joseluzon/amazon-corretto_jdk17
+    container_name: dev-java
+    tty: true
+    ports:
+      - 11100:11100
+    networks:
+      - devenv_network
+    volumes:
+      - devenv-java-workspace:/workspace/
+      - devenv-m2:/root/.m2
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+
+  prometheus:
+    image: prom/prometheus:v2.37.6 # LTS
+    container_name: prometheus
+    ports:
+      - 12100:9090
+    networks:
+      - devenv_network
+    volumes:
+      - ~/.devel/prometheus:/etc/prometheus
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+  
+  grafana:
+    image: grafana/grafana-oss:9.4.7
+    container_name: grafana
+    ports:
+      - 13100:3000
+    networks:
+      - devenv_network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+networks:
+  devenv_network:
+    driver: bridge
+
+volumes:
+  devenv-java-workspace:
+  devenv-m2:
