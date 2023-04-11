@@ -9,16 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.github.javafaker.Faker;
 import com.github.joseluzon.udemy.springframework5.rest.entities.User;
 import com.github.joseluzon.udemy.springframework5.rest.repositories.UsersRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
-@Slf4j
 public class RestApplication implements ApplicationRunner {
 
     private Faker faker;
     private UsersRepository userRepository;
     public static void main(String[] args) {
-        final var context = SpringApplication.run(RestApplication.class, args);
+        SpringApplication.run(RestApplication.class, args);
     }
 
     @Autowired
@@ -33,7 +31,6 @@ public class RestApplication implements ApplicationRunner {
             final var user = new User();
             user.setUsername(faker.name().username());
             user.setPassword(faker.dragonBall().character());
-            user.setProfile(null);
             userRepository.save(user);
         });
     }
