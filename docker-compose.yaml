@@ -45,6 +45,22 @@ services:
         limits:
           cpus: '1'
           memory: 1G
+  
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - 14100:6379
+    command: redis-server --save 60 1 --loglevel warning
+    networks:
+      - devenv_network
+    volumes:
+      - devenv-redis:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 256M
 
 networks:
   devenv_network:
