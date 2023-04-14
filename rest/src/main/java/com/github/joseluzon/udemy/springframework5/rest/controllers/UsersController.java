@@ -1,5 +1,6 @@
 package com.github.joseluzon.udemy.springframework5.rest.controllers;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.github.joseluzon.udemy.springframework5.rest.entities.Role;
 import com.github.joseluzon.udemy.springframework5.rest.entities.User;
+import com.github.joseluzon.udemy.springframework5.rest.entities.UserInRole;
+import com.github.joseluzon.udemy.springframework5.rest.services.UsersInRoleService;
 import com.github.joseluzon.udemy.springframework5.rest.services.UsersService;
 import io.micrometer.core.annotation.Timed;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,10 +28,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 public class UsersController {
     
     private UsersService usersService;
+    private UsersInRoleService usersInRoleService;
 
     @Autowired
-    public UsersController(final UsersService usersService) {
+    public UsersController(final UsersService usersService, final UsersInRoleService usersInRoleService) {
         this.usersService = usersService;
+        this.usersInRoleService = usersInRoleService;
     }
 
     @Timed("users.getUsers")
@@ -62,6 +68,19 @@ public class UsersController {
     @PostMapping
     public ResponseEntity<User> authenticate(@RequestBody final User user) {
         return new ResponseEntity<>(usersService.getUserByUsernameAndPassword(user.getUsername(), user.getPassword()), HttpStatus.OK);
+    }
+
+    @PostMapping("/{userId}/{roleId}")
+    public ResponseEntity<UserInRole> assignRole(
+        @PathVariable("userId") final Integer userId,
+        @PathVariable("roleId") final Integer roleId) {
+        return new ResponseEntity<>(usersInRoleService.assignUserToRole(userId, roleId), HttpStatus.OK);
+    }
+
+    @GetMapping("/{userId}/roles")
+    public ResponseEntity<List<Role>> getUserRoles(
+        @PathVariable("userId") final Integer userId) {
+        return new ResponseEntity<>(usersInRoleService.getUserRoles(userId), HttpStatus.OK);
     }
 
     @DeleteMapping("/username/{username}")

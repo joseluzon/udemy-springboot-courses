@@ -27,7 +27,7 @@ public class RestApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        IntStream.range(0, 100000).forEach(i -> {
+        IntStream.range(0, 10).forEach(i -> {
             final var user = new User();
             user.setUsername(faker.name().username());
             user.setPassword(faker.dragonBall().character());

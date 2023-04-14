@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.github.joseluzon.udemy.springframework5.rest.entities.Address;
@@ -25,8 +27,15 @@ public class AddressController {
     @GetMapping
     public ResponseEntity<List<Address>> getAddressByUserIdAndProfileId(
         @PathVariable("userId") final Integer userId,
-        @PathVariable("profileId") final Integer profileId
-    ) {
+        @PathVariable("profileId") final Integer profileId) {
         return new ResponseEntity<>(addressService.getAddressByUserIdAndProfileId(userId, profileId), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Address> createAddress(
+        @PathVariable("userId") final Integer userId,
+        @PathVariable("profileId") final Integer profileId,
+        @RequestBody final Address address) {
+        return new ResponseEntity<>(addressService.createAddress(userId, profileId, address), HttpStatus.OK);
     }
 }

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.github.joseluzon.udemy.springframework5.rest.entities.Role;
+import com.github.joseluzon.udemy.springframework5.rest.entities.User;
 import com.github.joseluzon.udemy.springframework5.rest.services.RolesService;
+import com.github.joseluzon.udemy.springframework5.rest.services.UsersInRoleService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,10 +23,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class RolesController {
     
     private RolesService rolesService;
+    private UsersInRoleService usersInRoleService;
 
     @Autowired
-    public RolesController(RolesService rolesService) {
+    public RolesController(final RolesService rolesService, final UsersInRoleService usersInRoleService) {
         this.rolesService = rolesService;
+        this.usersInRoleService = usersInRoleService;
     }
 
     @GetMapping
@@ -48,4 +52,9 @@ public class RolesController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
+    @GetMapping("/{roleId}/users")
+    public ResponseEntity<List<User>> getUserRoles(
+        @PathVariable("roleId") final Integer roleId) {
+        return new ResponseEntity<>(usersInRoleService.getRoleUsers(roleId), HttpStatus.OK);
+    }
 }
