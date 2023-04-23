@@ -1,10 +1,14 @@
 package com.github.joseluzon.udemy.springframework5.rest.services;
 
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import com.github.joseluzon.udemy.springframework5.rest.config.SecurityRule;
 import com.github.joseluzon.udemy.springframework5.rest.entities.Role;
 import com.github.joseluzon.udemy.springframework5.rest.entities.User;
 import com.github.joseluzon.udemy.springframework5.rest.entities.UserInRole;
@@ -13,6 +17,7 @@ import com.github.joseluzon.udemy.springframework5.rest.repositories.UsersInRole
 import com.github.joseluzon.udemy.springframework5.rest.repositories.UsersRepository;
 
 @Service
+@SecurityRule
 public class UsersInRoleService {
     
     private UsersInRolesRepository usersInRolesRepository;
@@ -51,6 +56,11 @@ public class UsersInRoleService {
         return usersInRolesRepository.getUserRoles(userId);
     }
 
+    // @Secured({"ROLE_ADMIN"})
+    // @RolesAllowed({"ROLE_ADMIN"})
+    // @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") // same as above
+    // @PostAuthorize("hasRole('ROLE_ADMIN')")                        // run the method, but if role does not match, no response is given (forbidden)
+    // @SecurityRule
     public List<User> getRoleUsers(final Integer roleId) {
         final var role = rolesRepository.findById(roleId);
         if (role.isEmpty()) {

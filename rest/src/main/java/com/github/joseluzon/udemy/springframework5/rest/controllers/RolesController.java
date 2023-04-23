@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +14,13 @@ import com.github.joseluzon.udemy.springframework5.rest.entities.Role;
 import com.github.joseluzon.udemy.springframework5.rest.entities.User;
 import com.github.joseluzon.udemy.springframework5.rest.services.RolesService;
 import com.github.joseluzon.udemy.springframework5.rest.services.UsersInRoleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
+@Slf4j
 @RestController
 @RequestMapping("/roles")
 public class RolesController {
@@ -33,6 +36,11 @@ public class RolesController {
 
     @GetMapping
     public ResponseEntity<List<Role>> getRoles() {
+        final var auth = SecurityContextHolder.getContext().getAuthentication();
+        log.info("Auth. Name: {}", auth.getName());
+        log.info("Auth. Principal: {}", auth.getPrincipal());
+        log.info("Auth. Credentials: {}", auth.getCredentials());
+        log.info("Auth. Roles: {}", auth.getAuthorities().toString());
         return new ResponseEntity<>(rolesService.getRoles(), HttpStatus.OK);
     }
 
