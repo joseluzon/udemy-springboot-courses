@@ -9,10 +9,10 @@
         <relativePath/>
         <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.github.joseluzon.udemy.springframework5</groupId>
-    <artifactId>rest</artifactId>
+    <groupId>com.github.joseluzon.udemy</groupId>
+    <artifactId>springframework5-rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rest</name>
+    <name>springframework5-rest</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>17</java.version>

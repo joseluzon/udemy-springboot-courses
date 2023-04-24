@@ -45,74 +45,74 @@
             },
             {
                 "type": "java",
-                "name": "core",
+                "name": "springframework5-core",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
-                "projectName": "core",
+                "projectName": "springframework5-core",
                 "vmArgs": ""
             },
             {
                 "type": "java",
-                "name": "core [development]",
+                "name": "springframework5-core [development]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
-                "projectName": "core",
+                "projectName": "springframework5-core",
                 "vmArgs": "-Dspring.profiles.active=development"
             },
             {
                 "type": "java",
-                "name": "core [production]",
+                "name": "springframework5-core [production]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
-                "projectName": "core",
+                "projectName": "springframework5-core",
                 "vmArgs": "-Dspring.profiles.active=production"
             },
             {
                 "type": "java",
-                "name": "core [qa]",
+                "name": "springframework5-core [qa]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.core.CoreApplication",
-                "projectName": "core",
+                "projectName": "springframework5-core",
                 "vmArgs": "-Dspring.profiles.active=qa"
             },
             {
                 "type": "java",
-                "name": "rest",
+                "name": "springframework5-rest",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
-                "projectName": "rest",
+                "projectName": "springframework5-rest",
                 "vmArgs": ""
             },
             {
                 "type": "java",
-                "name": "rest [development]",
+                "name": "springframework5-rest [development]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
-                "projectName": "rest",
+                "projectName": "springframework5-rest",
                 "vmArgs": "-Dspring.profiles.active=development"
             },
             {
                 "type": "java",
-                "name": "rest [production]",
+                "name": "springframework5-rest [production]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
-                "projectName": "rest",
+                "projectName": "springframework5-rest",
                 "vmArgs": "-Dspring.profiles.active=production"
             },
             {
                 "type": "java",
-                "name": "rest [qa]",
+                "name": "springframework5-rest [qa]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springframework5.rest.RestApplication",
-                "projectName": "rest",
+                "projectName": "springframework5-rest",
                 "vmArgs": "-Dspring.profiles.active=qa"
             },
         ]
