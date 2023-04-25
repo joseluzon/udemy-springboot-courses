@@ -2,7 +2,7 @@
 <configuration>
   <include resource="org/springframework/boot/logging/logback/defaults.xml" />
 
-  <property name="APP_NAME" value="springframework5-core" />
+  <property name="APP_NAME" value="springboot-automation-testing-basics" />
 
   <springProfile name="default">
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>

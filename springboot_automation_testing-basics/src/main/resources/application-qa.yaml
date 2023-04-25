@@ -1,0 +1,6 @@
+env: qa
+server:
+    port: 11100
+app:
+    url: http://eaapp.somee.com
+    browser: firefox
