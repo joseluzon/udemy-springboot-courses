@@ -1,11 +1,10 @@
-package com.github.joseluzon.udemy.speingboot.automationtesting.basics;
+package com.github.joseluzon.udemy.speingboot.automationtesting.microservices;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class HrmsApplicationTests {
 
 	@Test
