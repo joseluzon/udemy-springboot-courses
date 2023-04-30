@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+  <property name="APP_NAME" value="springboot-rabbitmq" />
+
+  <springProfile name="default">
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${user.home}/.${APP_NAME}/log/${APP_NAME}.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${user.home}/.${APP_NAME}/log/archived/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <!-- each archived file, size max 10MB -->
+        <maxFileSize>10MB</maxFileSize>
+        <!-- total size of all archive files, if total size > 1GB, it will delete old archived file -->
+        <totalSizeCap>100MB</totalSizeCap>
+        <!-- 60 days to keep -->
+        <maxHistory>10</maxHistory>
+      </rollingPolicy>
+      <encoder>
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="com.github.joseluzon" level="DEBUG"/>
+
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE-ROLLING"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="development">
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${user.home}/.${APP_NAME}/log/${APP_NAME}.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${user.home}/.${APP_NAME}/log/archived/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <!-- each archived file, size max 10MB -->
+        <maxFileSize>10MB</maxFileSize>
+        <!-- total size of all archive files, if total size > 1GB, it will delete old archived file -->
+        <totalSizeCap>100MB</totalSizeCap>
+        <!-- 60 days to keep -->
+        <maxHistory>10</maxHistory>
+      </rollingPolicy>
+      <encoder>
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="com.github.joseluzon" level="DEBUG"/>
+
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE-ROLLING"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="production">
+
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${user.home}/.${APP_NAME}/log/${APP_NAME}.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${user.home}/.${APP_NAME}/log/archived/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <!-- each archived file, size max 10MB -->
+        <maxFileSize>10MB</maxFileSize>
+        <!-- total size of all archive files, if total size > 1GB, it will delete old archived file -->
+        <totalSizeCap>10GB</totalSizeCap>
+        <!-- 180 days to keep -->
+        <maxHistory>180</maxHistory>
+      </rollingPolicy>
+      <encoder>
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.github.joseluzon" level="INFO"/>
+
+    <root level="WARN">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE-ROLLING"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="qa">
+
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${user.home}/.${APP_NAME}/log/${APP_NAME}.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${user.home}/.${APP_NAME}/log/archived/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <!-- each archived file, size max 10MB -->
+        <maxFileSize>10MB</maxFileSize>
+        <!-- total size of all archive files, if total size > 1GB, it will delete old archived file -->
+        <totalSizeCap>10GB</totalSizeCap>
+        <!-- 180 days to keep -->
+        <maxHistory>180</maxHistory>
+      </rollingPolicy>
+      <encoder>
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+      </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="com.github.joseluzon" level="INFO"/>
+
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE-ROLLING"/>
+    </root>
+  </springProfile>
+
+</configuration>

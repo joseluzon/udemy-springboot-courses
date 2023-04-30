@@ -187,6 +187,42 @@
                 "projectName": "springboot-automation-testing-microservices",
                 "vmArgs": "-Dspring.profiles.active=qa"
             },
+            {
+                "type": "java",
+                "name": "springboot-rabbitmq",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
+                "projectName": "springboot-rabbitmq",
+                "vmArgs": ""
+            },
+            {
+                "type": "java",
+                "name": "springboot-rabbitmq [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
+                "projectName": "springboot-rabbitmq",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
+            {
+                "type": "java",
+                "name": "springboot-rabbitmq [production]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
+                "projectName": "springboot-rabbitmq",
+                "vmArgs": "-Dspring.profiles.active=production"
+            },
+            {
+                "type": "java",
+                "name": "springboot-rabbitmq [qa]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
+                "projectName": "springboot-rabbitmq",
+                "vmArgs": "-Dspring.profiles.active=qa"
+            },
         ]
     }
 }
