@@ -14,27 +14,21 @@ import com.github.joseluzon.udemy.springboot.automationtesting.microservices.mod
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.models.Employee;
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.repositories.AddressRepository;
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.repositories.EmployeeRepository;
-
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootApplication
+@RequiredArgsConstructor // Ctor. is auto @Autowired
 public class HrmsApplication implements ApplicationRunner {
 
-    private Faker faker;
-    private EmployeeRepository employeeRepository;
-    private AddressRepository addressRepository;
+    private final Faker faker;
+    private final EmployeeRepository employeeRepository;
+    private final AddressRepository addressRepository;
 
 
     public static void main(String[] args) {
         SpringApplication.run(HrmsApplication.class, args);
-    }
-
-    @Autowired
-    public HrmsApplication(final Faker faker, final EmployeeRepository employeeRepository, final AddressRepository addressRepository) {
-        this.faker = faker;
-        this.employeeRepository = employeeRepository;
-        this.addressRepository = addressRepository;
     }
 
     @Override

@@ -1,24 +1,20 @@
 package com.github.joseluzon.udemy.springboot.automationtesting.microservices.services;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.models.Employee;
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.repositories.AddressRepository;
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.repositories.EmployeeRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor // Ctor. is auto @Autowired
 public class EmployeeService {
     
-    private EmployeeRepository employeeRepository;
-    private AddressRepository addressRepository;
-
-    public EmployeeService(final EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+    private final EmployeeRepository employeeRepository;
+    private final AddressRepository addressRepository;
 
     public Employee findById(final int id) {
         return employeeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

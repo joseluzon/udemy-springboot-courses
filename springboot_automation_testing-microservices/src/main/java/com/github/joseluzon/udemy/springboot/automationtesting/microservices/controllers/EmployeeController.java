@@ -16,17 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.models.Employee;
 import com.github.joseluzon.udemy.springboot.automationtesting.microservices.services.EmployeeService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/employee")
+@RequiredArgsConstructor // Ctor. is auto @Autowired
 public class EmployeeController {
 
-    private EmployeeService employeeService;
-
-    @Autowired
-    public EmployeeController(final EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+    private final EmployeeService employeeService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable("id") final int id) {

@@ -101,6 +101,20 @@ services:
         limits:
           cpus: '0.5'
           memory: 512M
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 15100:15672
+      - 15101:5672
+    networks:
+      - devenv_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
 
 networks:
   devenv_network:
