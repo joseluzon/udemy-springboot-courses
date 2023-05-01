@@ -1,0 +1,45 @@
+<html>
+
+<head>
+   <link th:href="@{/inventory-stylesheet.css}" rel="stylesheet">
+</head>
+
+<body>
+   <div class="topnav">
+      <a th:href="@{/global-superstore/form}">Form</a>
+      <a class="active" th:href="@{/global-superstore/inventory}">Inventory</a>
+   </div>
+
+   <div class="alert success" th:if="${status == 'SUCCESS'}">
+      <strong> You successfully submited the item! </strong>
+   </div>
+   <div class="alert" th:if="${status == 'ERROR'}">
+      <strong > You failed to submit the item. </strong> 
+   </div>
+
+   <div class="container">
+      <table>
+         <tr class="head">
+            <th>Category</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Order Date</th>
+            <th> </th>
+         </tr>
+         <tr th:each="item: ${items}">
+            <td th:text="*{item.category}" />
+            <td th:text="*{item.name}" />
+            <td th:text="${#numbers.formatCurrency(item.price)}" />
+            <td th:text="${#numbers.formatCurrency(item.discount)}" />
+            <td type="date" th:text="${#dates.format(item.date, 'yyyy-MM-dd')}" />
+            <td>
+               <a role="button" style="color:white; background-color: #263238" class="table-button"
+                  th:href="@{/global-superstore/form(uuid = ${item.uuid})}">Update</a>
+            </td>
+         </tr>
+      </table>
+   </div>
+</body>
+
+</html>

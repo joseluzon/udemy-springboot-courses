@@ -232,6 +232,24 @@
                 "projectName": "springboot-rabbitmq",
                 "vmArgs": "-Dspring.profiles.active=qa"
             },
+            {
+                "type": "java",
+                "name": "springboot-devbootcamp-grade-submission [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.GradeSubmissionApplication",
+                "projectName": "springboot-devbootcamp-grade-submission",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
+            {
+                "type": "java",
+                "name": "springboot-devbootcamp-challenges [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springbootdevbootcamp.challenges.ChallengesApplication",
+                "projectName": "springboot-devbootcamp-challenges",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
         ]
     }
 }
