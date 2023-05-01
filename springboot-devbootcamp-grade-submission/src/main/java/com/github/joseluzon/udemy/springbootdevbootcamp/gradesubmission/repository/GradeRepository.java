@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.Grade;
+import org.springframework.stereotype.Repository;
+import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.model.dto.Grade;
 import lombok.Getter;
 
+@Repository
 public class GradeRepository {
     
     @Getter

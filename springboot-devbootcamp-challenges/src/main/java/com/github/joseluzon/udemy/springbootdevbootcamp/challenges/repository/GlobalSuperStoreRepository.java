@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.stereotype.Repository;
 import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.Item;
 import lombok.Getter;
 
+@Repository
 public class GlobalSuperStoreRepository {
     
     @Getter

@@ -1,4 +1,4 @@
-package com.github.joseluzon.udemy.springbootdevbootcamp.challenges;
+package com.github.joseluzon.udemy.springbootdevbootcamp.challenges.controller;
 
 import java.util.UUID;
 import javax.validation.Valid;
@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.Item;
 import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.service.GlobalSuperStoreService;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/global-superstore")
+@RequiredArgsConstructor
 public class GlobalSuperStoreController {
-
-    private GlobalSuperStoreService globalSuperStoreService = new GlobalSuperStoreService();
+    // @Autowired by Ctor.
+    private final GlobalSuperStoreService globalSuperStoreService;
 
     @GetMapping("/form")
     public String getForm(final Model model, final @RequestParam(required = false) UUID uuid) {

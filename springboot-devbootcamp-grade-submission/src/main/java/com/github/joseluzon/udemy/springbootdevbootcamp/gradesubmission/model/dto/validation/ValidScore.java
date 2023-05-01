@@ -1,4 +1,4 @@
-package com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission;
+package com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.model.dto.validation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

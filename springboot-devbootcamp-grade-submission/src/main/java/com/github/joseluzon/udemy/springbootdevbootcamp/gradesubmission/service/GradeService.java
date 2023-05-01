@@ -2,12 +2,16 @@ package com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.service
 
 import java.util.List;
 import java.util.UUID;
-import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.Grade;
+import org.springframework.stereotype.Service;
+import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.model.dto.Grade;
 import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.repository.GradeRepository;
+import lombok.RequiredArgsConstructor;
 
+@Service
+@RequiredArgsConstructor // Ctor. is autowired
 public class GradeService {
-    
-    private GradeRepository gradeRepository = new GradeRepository();
+    // @Autowired by Ctor.
+    private final GradeRepository gradeRepository;
 
     public List<Grade> getStudentGrades() {
         return gradeRepository.getStudentGrades();
@@ -22,11 +26,11 @@ public class GradeService {
         return gradeOptional.isPresent() ? gradeOptional.get() : Grade.builder().build();
     }
 
-    public void addGrade(final Grade grade) {
+    private void addGrade(final Grade grade) {
         gradeRepository.addGrade(grade);
     }
     
-    public void updateGrade(final UUID uuid, final Grade grade) {
+    private void updateGrade(final UUID uuid, final Grade grade) {
         gradeRepository.updateGrade(uuid, grade);
     }
 

@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.Grade;
+import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.model.dto.Grade;
 import com.github.joseluzon.udemy.springbootdevbootcamp.gradesubmission.service.GradeService;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/grades")
+@RequiredArgsConstructor // Ctor. is autowired
 public class GradeController {
 
-    private GradeService gradeService = new GradeService();
+    // @Autowired by Ctor.
+    private final GradeService gradeService;
 
     @GetMapping("")
     public String getGrades(final Model model) {

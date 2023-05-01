@@ -4,13 +4,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import org.springframework.stereotype.Service;
 import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.Item;
 import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.Status;
 import com.github.joseluzon.udemy.springbootdevbootcamp.challenges.repository.GlobalSuperStoreRepository;
+import lombok.RequiredArgsConstructor;
 
+@Service
+@RequiredArgsConstructor
 public class GlobalSuperStoreService {
-    
-    private GlobalSuperStoreRepository globalSuperStoreRepository = new GlobalSuperStoreRepository();
+    // @Autowired by Ctor.
+    private final GlobalSuperStoreRepository globalSuperStoreRepository;
 
     public List<Item> getItems() {
         return globalSuperStoreRepository.getItemStore();
