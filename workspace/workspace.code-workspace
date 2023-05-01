@@ -198,12 +198,21 @@
             },
             {
                 "type": "java",
-                "name": "springboot-rabbitmq [development]",
+                "name": "springboot-rabbitmq [development-mvc]",
                 // "console": "internalConsole",
                 "request": "launch",
                 "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
                 "projectName": "springboot-rabbitmq",
-                "vmArgs": "-Dspring.profiles.active=development"
+                "vmArgs": "-Dspring.profiles.active=development-mvc"
+            },
+            {
+                "type": "java",
+                "name": "springboot-rabbitmq [development-nomvc]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springboot.rabbitmq.RabbitMQApplication",
+                "projectName": "springboot-rabbitmq",
+                "vmArgs": "-Dspring.profiles.active=development-nomvc"
             },
             {
                 "type": "java",
