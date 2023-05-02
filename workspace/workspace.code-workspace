@@ -250,6 +250,15 @@
                 "projectName": "springboot-devbootcamp-challenges",
                 "vmArgs": "-Dspring.profiles.active=development"
             },
+            {
+                "type": "java",
+                "name": "springboot-devbootcamp-backenddev [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.udemy.springbootdevbootcamp.backenddev.BackendDevApplication",
+                "projectName": "springboot-devbootcamp-backenddev",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
         ]
     }
 }

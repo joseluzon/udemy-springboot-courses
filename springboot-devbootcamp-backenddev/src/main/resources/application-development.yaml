@@ -1,0 +1,23 @@
+server:
+    port: 11100
+spring:
+    # data:
+        # redis:
+        #     repositories.enabled: false
+    h2:
+        console:
+            enabled: true # /h2-console
+            settings.web-allow-others: true
+    datasource:
+        driver-class-name: org.h2.Driver
+        username: joseluzon
+        password:
+        url: jdbc:h2:mem:udemy-springbootdevcamp-backend
+    redis:
+        host: redis
+        port: 6379
+    # security:
+    #     user.name: admin
+    #     user.password: admin
+services:
+    contact: improved
