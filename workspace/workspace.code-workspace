@@ -259,6 +259,15 @@
                 "projectName": "springboot-devbootcamp-backenddev",
                 "vmArgs": "-Dspring.profiles.active=development"
             },
+            {
+                "type": "java",
+                "name": "fintonic-proxy-pattern [development]",
+                // "console": "internalConsole",
+                "request": "launch",
+                "mainClass": "com.github.joseluzon.fintonic.patterns.proxy.ProxyPatternApplication",
+                "projectName": "fintonic-proxy-pattern",
+                "vmArgs": "-Dspring.profiles.active=development"
+            },
         ]
     }
 }
